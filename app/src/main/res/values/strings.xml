@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">higher lower</string>
+    <string name="HIGHER">HIGHER</string>
+    <string name="LOWER">LOWER</string>
+    <string name="Play">Play</string>
+    <string name="Highscore">Highscore</string>
+    <string name="Settings">Settings</string>
+    <string name="Lower">Lower</string>
+    <string name="Higher">Higher</string>
+</resources>
