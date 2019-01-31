@@ -73,5 +73,6 @@ private ArrayList<Integer> list;
         list.add(R.drawable.);
         list.add(R.drawable.);
         list.add(R.drawable.); */
+
     }
 }
