@@ -7,4 +7,6 @@
     <string name="Settings">Settings</string>
     <string name="Lower">Lower</string>
     <string name="Higher">Higher</string>
+    <string name="_1">1.</string>
+    <string name="_2">2.</string>
 </resources>

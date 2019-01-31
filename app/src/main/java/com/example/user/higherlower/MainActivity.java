@@ -21,10 +21,36 @@ public class MainActivity extends AppCompatActivity {
                openGame();
            }
         });
+
+        button = findViewById(R.id.button2);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openHighScore();
+            }
+        });
+
+        button = findViewById(R.id.button3);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openSettings();
+            }
+        });
     }
 
     public void openGame(){
         Intent intent = new Intent(this,GameActivity.class);
         startActivity(intent);
+    }
+
+    public void  openHighScore(){
+        Intent intent2 = new Intent(this, HighScoreActivity.class);
+        startActivity(intent2);
+    }
+
+    public void  openSettings(){
+        Intent intent3 = new Intent(this,SettingsActivity.class);
+        startActivity(intent3);
     }
 }
