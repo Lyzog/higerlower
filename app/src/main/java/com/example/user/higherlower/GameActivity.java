@@ -2,13 +2,17 @@ package com.example.user.higherlower;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import java.util.ArrayList;
+import java.util.Random;
 
 public class GameActivity extends AppCompatActivity {
 
 private ArrayList<com.example.user.higherlower.Card> list;
 
+private Button button;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,7 +74,8 @@ private ArrayList<com.example.user.higherlower.Card> list;
         
 
         ImageView imgView=findViewById(R.id.card);
-        imgView.(c1);  // need to fix so i can use the arraylist with list.get()
+        imgView.setImageResource(h1.picture);
+        // need to fix so i can use the ArrayList with list.get()
 
         list = new ArrayList<>();
 
@@ -127,5 +132,19 @@ private ArrayList<com.example.user.higherlower.Card> list;
         list.add(sQ);
         list.add(sK);
 
+
+        button = findViewById(R.id.buttonHigher);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Random random = new Random();
+                int n = random.nextInt(52);
+
+               // list.get(n);
+
+                System.out.println(n);
+
+            }
+        });
     }
 }

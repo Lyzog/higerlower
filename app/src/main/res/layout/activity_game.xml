@@ -12,7 +12,8 @@
         android:layout_height="480dp"
         android:layout_marginStart="70dp"
         android:layout_marginLeft="70dp"
-        android:layout_marginTop="30dp" />
+        android:layout_marginTop="30dp"
+        />
 
     <Button
         android:id="@+id/buttonHigher"
@@ -28,7 +29,8 @@
         android:background="#227FEA"
         android:text="@string/Higher"
         android:textSize="36sp"
-        tools:ignore="UnknownIdInLayout" />
+        tools:ignore="UnknownIdInLayout"
+        />
 
     <Button
         android:id="@+id/buttonLower"
@@ -44,7 +46,8 @@
         android:background="#2BCD09"
         android:text="@string/Lower"
         android:textSize="36sp"
-        tools:ignore="UnknownIdInLayout"/>
+        tools:ignore="UnknownIdInLayout"
+        />
 
 
 
