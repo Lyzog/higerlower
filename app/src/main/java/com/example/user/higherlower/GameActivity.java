@@ -71,11 +71,8 @@ private Button button;
         Card sJ = new Card(11, R.drawable.s_j);
         Card sQ = new Card(12, R.drawable.s_q);
         Card sK = new Card(13, R.drawable.s_k);
-        
 
-        ImageView imgView=findViewById(R.id.card);
-        imgView.setImageResource(h1.picture);
-        // need to fix so i can use the ArrayList with list.get()
+        // need to fix so i can us1e the ArrayList with list.get()
 
         list = new ArrayList<>();
 
@@ -140,7 +137,26 @@ private Button button;
                 Random random = new Random();
                 int n = random.nextInt(52);
 
-               // list.get(n);
+                Card card =  list.get(n);
+
+                ImageView imgView=findViewById(R.id.card);
+                imgView.setImageResource(card.picture);
+
+                System.out.println(n);
+
+            }
+        });
+        button = findViewById(R.id.buttonLower);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Random random = new Random();
+                int n = random.nextInt(52);
+
+                Card card =  list.get(n);
+
+                ImageView imgView=findViewById(R.id.card);
+                imgView.setImageResource(card.picture);
 
                 System.out.println(n);
 
