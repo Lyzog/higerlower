@@ -3,10 +3,14 @@
     <string name="HIGHER">HIGHER</string>
     <string name="LOWER">LOWER</string>
     <string name="Play">Play</string>
-    <string name="Highscore">Highscore</string>
+    <string name="HighScore">Highscore</string>
     <string name="Settings">Settings</string>
     <string name="Lower">Lower</string>
     <string name="Higher">Higher</string>
     <string name="_1">1.</string>
     <string name="_2">2.</string>
+    <string name="Sound">Sound</string>
+    <string name="Music">Music</string>
+    <string name="Theme">Theme</string>
+    <string name="Languages">Languages</string>
 </resources>

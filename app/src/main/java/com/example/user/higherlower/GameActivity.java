@@ -1,5 +1,7 @@
 package com.example.user.higherlower;
 
+import android.content.Intent;
+import android.graphics.Picture;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -72,8 +74,6 @@ private Button button;
         Card sQ = new Card(12, R.drawable.s_q);
         Card sK = new Card(13, R.drawable.s_k);
 
-        // need to fix so i can us1e the ArrayList with list.get()
-
         list = new ArrayList<>();
 
         list.add(c1);
@@ -129,6 +129,14 @@ private Button button;
         list.add(sQ);
         list.add(sK);
 
+        Random random = new Random();
+        int n = random.nextInt(52);
+
+        final Card card =  list.get(n);
+
+        final ImageView imgView=findViewById(R.id.card);
+        imgView.setImageResource(card.picture);
+
 
         button = findViewById(R.id.buttonHigher);
         button.setOnClickListener(new View.OnClickListener() {
@@ -136,31 +144,43 @@ private Button button;
             public void onClick(View v) {
                 Random random = new Random();
                 int n = random.nextInt(52);
-
                 Card card =  list.get(n);
 
-                ImageView imgView=findViewById(R.id.card);
-                imgView.setImageResource(card.picture);
+                if (card.value > n){
+                    System.out.println("abcdefghijkl");
+                }
+                else {
+                    ImageView imgView = findViewById(R.id.card);
+                    imgView.setImageResource(card.picture);
 
-                System.out.println(n);
+                    System.out.println(n);
 
+                }
             }
         });
+
         button = findViewById(R.id.buttonLower);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 Random random = new Random();
                 int n = random.nextInt(52);
-
                 Card card =  list.get(n);
 
-                ImageView imgView=findViewById(R.id.card);
-                imgView.setImageResource(card.picture);
+                if (card.value < n){
+                    System.out.println(123456789);
+                }
+                else {
+                    ImageView imgView = findViewById(R.id.card);
+                    imgView.setImageResource(card.picture);
 
-                System.out.println(n);
+                    System.out.println(n);
 
+                }
             }
+
         });
+
     }
 }

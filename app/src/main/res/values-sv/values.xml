@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">higher lower</string>
+    <string name="HIGHER">HÖGRE</string>
+    <string name="LOWER">LÄGRE</string>
+    <string name="Play">Spela</string>
+    <string name="HighScore">Rekord</string>
+    <string name="Settings">Inställningar</string>
+    <string name="Lower">Lägre</string>
+    <string name="Higher">Högre</string>
+    <string name="_1">1.</string>
+    <string name="_2">2.</string>
+    <string name="Sound">Ljud</string>
+    <string name="Music">Musik</string>
+    <string name="Theme">Tema</string>
+    <string name="Languages">Språk</string>
+
+</resources>
+
