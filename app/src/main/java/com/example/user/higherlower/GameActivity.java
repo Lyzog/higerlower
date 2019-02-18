@@ -134,8 +134,7 @@ private Button button;
 
         final Card card =  list.get(n);
 
-        final ImageView imgView=findViewById(R.id.card);
-        imgView.setImageResource(card.picture);
+
 
 
         button = findViewById(R.id.buttonHigher);
@@ -146,15 +145,17 @@ private Button button;
                 int n = random.nextInt(52);
                 Card card =  list.get(n);
 
-                if (card.value > n){
-                    System.out.println("abcdefghijkl");
-                }
-                else {
+                if (n < card.value) {
+                    ImageView imgView = findViewById(R.id.card);
+                    imgView.setImageResource(card.picture);
+
+                    System.out.println(n + " abcdefghijkl");
+
+                } else {
                     ImageView imgView = findViewById(R.id.card);
                     imgView.setImageResource(card.picture);
 
                     System.out.println(n);
-
                 }
             }
         });
@@ -168,8 +169,8 @@ private Button button;
                 int n = random.nextInt(52);
                 Card card =  list.get(n);
 
-                if (card.value < n){
-                    System.out.println(123456789);
+                if (n > card.value){
+                    System.out.println(n + " 123456789");
                 }
                 else {
                     ImageView imgView = findViewById(R.id.card);
@@ -181,6 +182,9 @@ private Button button;
             }
 
         });
+
+        final ImageView imgView=findViewById(R.id.card);
+        imgView.setImageResource(card.picture);
 
     }
 }
