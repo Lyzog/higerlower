@@ -147,15 +147,18 @@ private Button button;
                 Card card =  list.get(n);
 
                 if (card.value > n){
-                    System.out.println("abcdefghijkl");
+                    System.out.println(card.value + " " + card.picture + " " + n + " value högre än N = true");
                 }
-                else {
+                else if (card.value < n){
+                    System.out.println(card.value + " " + card.picture + " " + n + " value lägre än N = false");
+                }
+
                     ImageView imgView = findViewById(R.id.card);
                     imgView.setImageResource(card.picture);
 
                     System.out.println(n);
 
-                }
+
             }
         });
 
@@ -169,15 +172,17 @@ private Button button;
                 Card card =  list.get(n);
 
                 if (card.value < n){
-                    System.out.println(123456789);
+                    System.out.println(card.value + " " + card.picture + " " + n + " value lägre än N = true");
                 }
-                else {
-                    ImageView imgView = findViewById(R.id.card);
-                    imgView.setImageResource(card.picture);
-
-                    System.out.println(n);
-
+                else if (card.value > n){
+                    System.out.println(card.value + " " + card.picture + " " + n + " value högre än N = false");
                 }
+                ImageView imgView = findViewById(R.id.card);
+                imgView.setImageResource(card.picture);
+
+                System.out.println(n);
+
+
             }
 
         });

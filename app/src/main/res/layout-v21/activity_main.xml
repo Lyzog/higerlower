@@ -45,7 +45,7 @@
         android:layout_marginTop="-5dp"
         android:layout_marginEnd="0dp"
         android:layout_marginRight="0dp"
-        android:layout_marginBottom="140dp"
+        android:layout_marginBottom="10dp"
         android:text="@string/LOWER"
         android:textAlignment="center"
         android:textColor="#2BCD09"
