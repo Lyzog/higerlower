@@ -110,17 +110,6 @@
         android:textSize="25sp"
         />
 
-    <TextView
-        android:id="@+id/textView11"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
-        android:layout_marginLeft="100dp"
-        android:layout_marginTop="180dp"
-        android:text="@string/off"
-        android:textSize="25sp"
-        />
-
     <Switch
         android:id="@+id/switch1"
         android:layout_width="50dp"
