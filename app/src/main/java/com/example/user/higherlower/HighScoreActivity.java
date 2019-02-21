@@ -10,8 +10,6 @@ import android.widget.ImageButton;
 
 public class HighScoreActivity extends AppCompatActivity {
 
-    private ImageButton button;
-
     @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,8 +17,8 @@ public class HighScoreActivity extends AppCompatActivity {
         getSupportActionBar().hide();
         setContentView(R.layout.activity_highscore);
 
-        button = findViewById(R.id.backToMain);
-        button.setOnClickListener(new View.OnClickListener(){
+        ImageButton imagebutton = findViewById(R.id.backToMain);
+        imagebutton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 goBackToMain();

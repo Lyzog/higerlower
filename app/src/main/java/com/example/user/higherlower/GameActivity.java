@@ -60,7 +60,7 @@ private Button button;
         Card hJ = new Card(11, R.drawable.h_j);
         Card hQ = new Card(12, R.drawable.h_q);
         Card hK = new Card(13, R.drawable.h_k);
-        Card s1 = new Card(1, R.drawable.s_1);
+        final Card s1 = new Card(1, R.drawable.s_1);
         Card s2 = new Card(2, R.drawable.s_2);
         Card s3 = new Card(3, R.drawable.s_3);
         Card s4 = new Card(4, R.drawable.s_4);
@@ -76,89 +76,92 @@ private Button button;
 
         list = new ArrayList<>();
 
-        list.add(c1);
-        list.add(c2);
-        list.add(c3);
-        list.add(c4);
-        list.add(c5);
-        list.add(c6);
-        list.add(c7);
-        list.add(c8);
-        list.add(c9);
-        list.add(c10);
-        list.add(cJ);
-        list.add(cQ);
-        list.add(cK);
-        list.add(d1);
-        list.add(d2);
-        list.add(d3);
-        list.add(d4);
-        list.add(d5);
-        list.add(d6);
-        list.add(d7);
-        list.add(d8);
-        list.add(d9);
-        list.add(d10);
-        list.add(dJ);
-        list.add(dQ);
-        list.add(dK);
-        list.add(h1);
-        list.add(h2);
-        list.add(h3);
-        list.add(h4);
-        list.add(h5);
-        list.add(h6);
-        list.add(h7);
-        list.add(h8);
-        list.add(h9);
-        list.add(h10);
-        list.add(hJ);
-        list.add(hQ);
-        list.add(hK);
-        list.add(s1);
-        list.add(s2);
-        list.add(s3);
-        list.add(s4);
-        list.add(s5);
-        list.add(s6);
-        list.add(s7);
-        list.add(s8);
-        list.add(s9);
-        list.add(s10);
-        list.add(sJ);
-        list.add(sQ);
-        list.add(sK);
+        list.add(c1); //0
+        list.add(c2); //1
+        list.add(c3); //2
+        list.add(c4); //3
+        list.add(c5); //4
+        list.add(c6); //5
+        list.add(c7); //6
+        list.add(c8); //7
+        list.add(c9); //8
+        list.add(c10); //9
+        list.add(cJ); //10
+        list.add(cQ); //11
+        list.add(cK); //12
+        list.add(d1); //13
+        list.add(d2); //14
+        list.add(d3); //15
+        list.add(d4); //16
+        list.add(d5); //17
+        list.add(d6); //18
+        list.add(d7); //19
+        list.add(d8); //20
+        list.add(d9); //21
+        list.add(d10); //22
+        list.add(dJ); //23
+        list.add(dQ); //24
+        list.add(dK); //25
+        list.add(h1); //26
+        list.add(h2); //27
+        list.add(h3); //28
+        list.add(h4); //29
+        list.add(h5); //30
+        list.add(h6); //31
+        list.add(h7); //32
+        list.add(h8); //33
+        list.add(h9); //34
+        list.add(h10); //35
+        list.add(hJ); //36
+        list.add(hQ); //37
+        list.add(hK); //38
+        list.add(s1); //39
+        list.add(s2); //40
+        list.add(s3); //41
+        list.add(s4); //42
+        list.add(s5); //43
+        list.add(s6); //44
+        list.add(s7); //45
+        list.add(s8); //46
+        list.add(s9); //47
+        list.add(s10); //48
+        list.add(sJ); //49
+        list.add(sQ); //50
+        list.add(sK); //51
 
         Random random = new Random();
         int n = random.nextInt(52);
-
         final Card card =  list.get(n);
-
-        final ImageView imgView=findViewById(R.id.card);
-        imgView.setImageResource(card.picture);
 
 
         button = findViewById(R.id.buttonHigher);
         button.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
                 Random random = new Random();
                 int n = random.nextInt(52);
+                int c = card.value;
                 Card card =  list.get(n);
 
-                if (card.value > n){
-                    System.out.println(card.value + " " + card.picture + " " + n + " value högre än N = true");
-                }
-                else if (card.value < n){
-                    System.out.println(card.value + " " + card.picture + " " + n + " value lägre än N = false");
-                }
-
+                if (c < card.value) {
                     ImageView imgView = findViewById(R.id.card);
                     imgView.setImageResource(card.picture);
 
-                    System.out.println(n);
+                    System.out.println(n + " this is higher than previous");
+                }
+                else if (c == card.value){ // denna behövs inte bara för att see bättre
+                    ImageView imageView = findViewById(R.id.card);
+                    imageView.setImageResource(card.picture);
 
+                    System.out.println(n + " this is equal than previous");
+                }
+                else {
+                    Intent intent = new Intent(GameActivity.this ,MainActivity.class);
+                    startActivity(intent);
 
+                    System.out.println(n + " this is lower than previous when it should have been higher");
+                }
             }
         });
 
@@ -166,26 +169,34 @@ private Button button;
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 Random random = new Random();
                 int n = random.nextInt(52);
+                int c = card.value;
                 Card card =  list.get(n);
 
-                if (card.value < n){
-                    System.out.println(card.value + " " + card.picture + " " + n + " value lägre än N = true");
+                if (c > card.value){
+                    ImageView imgView = findViewById(R.id.card);
+                    imgView.setImageResource(card.picture);
+
+                    System.out.println(n + " this is lower than previous");
                 }
-                else if (card.value > n){
-                    System.out.println(card.value + " " + card.picture + " " + n + " value högre än N = false");
+                else if (c == card.value){ // denna behövs inte bara för att se bättre
+                    ImageView imageView = findViewById(R.id.card);
+                    imageView.setImageResource(card.picture);
+
+                    System.out.println(n + " this is equal than previous");
                 }
-                ImageView imgView = findViewById(R.id.card);
-                imgView.setImageResource(card.picture);
+                else {
+                    Intent intent = new Intent(GameActivity.this ,MainActivity.class);
+                    startActivity(intent);
 
-                System.out.println(n);
-
-
+                    System.out.println(n + " this is higher than previous when it should have been lower");
+                }
             }
 
         });
 
+        final ImageView imgView=findViewById(R.id.card);
+        imgView.setImageResource(card.picture);
     }
 }
