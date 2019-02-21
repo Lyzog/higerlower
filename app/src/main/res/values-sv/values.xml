@@ -14,5 +14,8 @@
     <string name="Theme">Tema</string>
     <string name="Languages">Språk</string>
     <string name="credits">Beröm</string>
+    <string name="on">på</string>
+    <string name="off">av</string>
+    <string name="_3">3.</string>
 </resources>
 

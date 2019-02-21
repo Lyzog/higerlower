@@ -8,8 +8,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 
+import java.util.ArrayList;
+
 public class HighScoreActivity extends AppCompatActivity {
 
+    ArrayList<com.example.user.higherlower.Points>list;
     @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +27,9 @@ public class HighScoreActivity extends AppCompatActivity {
                 goBackToMain();
             }
         });
+
+
+
     }
 
     public void goBackToMain(){

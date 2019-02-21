@@ -1,6 +1,5 @@
 package com.example.user.higherlower;
 
-
 public class Card {
     int value;
     int picture;

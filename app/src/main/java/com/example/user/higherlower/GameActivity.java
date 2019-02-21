@@ -4,17 +4,23 @@ import android.content.Intent;
 import android.graphics.Picture;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+
 import java.util.ArrayList;
 import java.util.Random;
 
 public class GameActivity extends AppCompatActivity {
 
-private ArrayList<com.example.user.higherlower.Card> list;
+    private ArrayList<com.example.user.higherlower.Card> list;
 
-private Button button;
+    private Button button;
+
+    private Card card;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,7 +66,7 @@ private Button button;
         Card hJ = new Card(11, R.drawable.h_j);
         Card hQ = new Card(12, R.drawable.h_q);
         Card hK = new Card(13, R.drawable.h_k);
-        final Card s1 = new Card(1, R.drawable.s_1);
+        Card s1 = new Card(1, R.drawable.s_1);
         Card s2 = new Card(2, R.drawable.s_2);
         Card s3 = new Card(3, R.drawable.s_3);
         Card s4 = new Card(4, R.drawable.s_4);
@@ -131,36 +137,35 @@ private Button button;
 
         Random random = new Random();
         int n = random.nextInt(52);
-        final Card card =  list.get(n);
+        card = list.get(n);
 
 
         button = findViewById(R.id.buttonHigher);
         button.setOnClickListener(new View.OnClickListener() {
-
-            @Override
             public void onClick(View v) {
                 Random random = new Random();
                 int n = random.nextInt(52);
                 int c = card.value;
-                Card card =  list.get(n);
+                Log.d("David", "present: " + c);
+                card = list.get(n);
+                Log.d("David", "next: " + card.value);
 
                 if (c < card.value) {
                     ImageView imgView = findViewById(R.id.card);
                     imgView.setImageResource(card.picture);
 
-                    System.out.println(n + " this is higher than previous");
-                }
-                else if (c == card.value){ // denna behövs inte bara för att see bättre
+                    //    System.out.println(n + " this is higher than previous");
+                } else if (c == card.value) { // denna behövs inte bara för att see bättre
                     ImageView imageView = findViewById(R.id.card);
                     imageView.setImageResource(card.picture);
 
-                    System.out.println(n + " this is equal than previous");
-                }
-                else {
-                    Intent intent = new Intent(GameActivity.this ,MainActivity.class);
+                    //  System.out.println(n + " this is equal than previous");
+                } else {
+                    Intent intent = new Intent(GameActivity.this, MainActivity.class);
                     startActivity(intent);
 
-                    System.out.println(n + " this is lower than previous when it should have been higher");
+                    //System.out.println(n + " this is lower than previous when it should have been higher");
+                    // add alert
                 }
             }
         });
@@ -172,31 +177,32 @@ private Button button;
                 Random random = new Random();
                 int n = random.nextInt(52);
                 int c = card.value;
-                Card card =  list.get(n);
+                Log.d("David", "present: " + c);
+                card = list.get(n);
+                Log.d("David", "next: " + card.value);
 
-                if (c > card.value){
+                if (c > card.value) {
                     ImageView imgView = findViewById(R.id.card);
                     imgView.setImageResource(card.picture);
 
                     System.out.println(n + " this is lower than previous");
-                }
-                else if (c == card.value){ // denna behövs inte bara för att se bättre
+                } else if (c == card.value) { // denna behövs inte bara för att se bättre
                     ImageView imageView = findViewById(R.id.card);
                     imageView.setImageResource(card.picture);
 
                     System.out.println(n + " this is equal than previous");
-                }
-                else {
-                    Intent intent = new Intent(GameActivity.this ,MainActivity.class);
+                } else {
+                    Intent intent = new Intent(GameActivity.this, MainActivity.class);
                     startActivity(intent);
 
                     System.out.println(n + " this is higher than previous when it should have been lower");
+                    // add alert / alarmruta / not is
                 }
             }
 
         });
 
-        final ImageView imgView=findViewById(R.id.card);
+        final ImageView imgView = findViewById(R.id.card);
         imgView.setImageResource(card.picture);
     }
 }
