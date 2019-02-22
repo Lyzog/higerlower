@@ -1,7 +1,9 @@
 package com.example.user.higherlower;
 
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Picture;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -20,6 +22,7 @@ public class GameActivity extends AppCompatActivity {
 
     private Card card;
 
+    final Context context = this;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -139,21 +142,17 @@ public class GameActivity extends AppCompatActivity {
         int n = random.nextInt(52);
         card = list.get(n);
 
-
         button = findViewById(R.id.buttonHigher);
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Random random = new Random();
                 int n = random.nextInt(52);
                 int c = card.value;
-                Log.d("David", "present: " + c);
                 card = list.get(n);
-                Log.d("David", "next: " + card.value);
 
                 if (c < card.value) {
                     ImageView imgView = findViewById(R.id.card);
                     imgView.setImageResource(card.picture);
-
                     //    System.out.println(n + " this is higher than previous");
                 } else if (c == card.value) { // denna behövs inte bara för att see bättre
                     ImageView imageView = findViewById(R.id.card);
@@ -161,9 +160,17 @@ public class GameActivity extends AppCompatActivity {
 
                     //  System.out.println(n + " this is equal than previous");
                 } else {
-                    Intent intent = new Intent(GameActivity.this, MainActivity.class);
-                    startActivity(intent);
-
+                    AlertDialog.Builder alert = new AlertDialog.Builder(context);
+                    alert.setMessage("Game Over");
+                    alert.setCancelable(true);
+                    alert.setPositiveButton("end", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.cancel();
+                        }
+                    });
+                    AlertDialog alert1 = alert.create();
+                    alert1.show();
                     //System.out.println(n + " this is lower than previous when it should have been higher");
                     // add alert
                 }
@@ -192,16 +199,28 @@ public class GameActivity extends AppCompatActivity {
 
                     System.out.println(n + " this is equal than previous");
                 } else {
+
+                    AlertDialog.Builder alert = new AlertDialog.Builder(context);
+                    alert.setMessage("Game Over");
+                    alert.setCancelable(true);
+                    alert.setPositiveButton("end", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.cancel();
+                        }
+                    });
+                    AlertDialog alert1 = alert.create();
+                    alert1.show();
+                /*
                     Intent intent = new Intent(GameActivity.this, MainActivity.class);
                     startActivity(intent);
+                    */
 
                     System.out.println(n + " this is higher than previous when it should have been lower");
                     // add alert / alarmruta / not is
                 }
             }
-
         });
-
         final ImageView imgView = findViewById(R.id.card);
         imgView.setImageResource(card.picture);
     }
