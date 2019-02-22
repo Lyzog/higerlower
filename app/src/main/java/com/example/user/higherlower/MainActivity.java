@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
            }
         });
 
+    /*
         button = findViewById(R.id.button2);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -38,13 +39,14 @@ public class MainActivity extends AppCompatActivity {
                 openSettings();
             }
         });
+    */
     }
-
     public void openGame(){
         Intent intent = new Intent(this,GameActivity.class);
         startActivity(intent);
     }
 
+    /*
     public void  openHighScore(){
         Intent intent2 = new Intent(this, HighScoreActivity.class);
         startActivity(intent2);
@@ -54,4 +56,5 @@ public class MainActivity extends AppCompatActivity {
         Intent intent3 = new Intent(this,SettingsActivity.class);
         startActivity(intent3);
     }
+    */
 }

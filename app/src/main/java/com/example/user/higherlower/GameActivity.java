@@ -10,18 +10,15 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-
 import java.util.ArrayList;
 import java.util.Random;
 
 public class GameActivity extends AppCompatActivity {
 
     private ArrayList<com.example.user.higherlower.Card> list;
-
+    int Point = 0;
     private Button button;
-
     private Card card;
-
     final Context context = this;
 
     @Override
@@ -150,23 +147,29 @@ public class GameActivity extends AppCompatActivity {
                 int c = card.value;
                 card = list.get(n);
 
-                if (c < card.value) {
+                if (c <= card.value) {
                     ImageView imgView = findViewById(R.id.card);
                     imgView.setImageResource(card.picture);
+                    Point++;
                     //    System.out.println(n + " this is higher than previous");
-                } else if (c == card.value) { // denna behövs inte bara för att see bättre
+                }
+                /*
+                else if (c == card.value) { // denna behövs inte bara för att see bättre
                     ImageView imageView = findViewById(R.id.card);
                     imageView.setImageResource(card.picture);
 
                     //  System.out.println(n + " this is equal than previous");
-                } else {
+                }
+                */
+                else {
                     AlertDialog.Builder alert = new AlertDialog.Builder(context);
-                    alert.setMessage("Game Over");
+                    alert.setMessage("you points: " + Point);
                     alert.setCancelable(true);
                     alert.setPositiveButton("end", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            dialog.cancel();
+                            Intent intent = new Intent(GameActivity.this, MainActivity.class);
+                            startActivity(intent);
                         }
                     });
                     AlertDialog alert1 = alert.create();
@@ -188,33 +191,34 @@ public class GameActivity extends AppCompatActivity {
                 card = list.get(n);
                 Log.d("David", "next: " + card.value);
 
-                if (c > card.value) {
+                if (c >= card.value) {
                     ImageView imgView = findViewById(R.id.card);
                     imgView.setImageResource(card.picture);
+                    Point++;
 
                     System.out.println(n + " this is lower than previous");
-                } else if (c == card.value) { // denna behövs inte bara för att se bättre
+                }
+                /*
+                else if (c == card.value) { // denna behövs inte bara för att se bättre
                     ImageView imageView = findViewById(R.id.card);
                     imageView.setImageResource(card.picture);
 
                     System.out.println(n + " this is equal than previous");
-                } else {
-
+                }
+                */
+                else {
                     AlertDialog.Builder alert = new AlertDialog.Builder(context);
-                    alert.setMessage("Game Over");
+                    alert.setMessage("you points: " + Point);
                     alert.setCancelable(true);
                     alert.setPositiveButton("end", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            dialog.cancel();
+                            Intent intent = new Intent(GameActivity.this, MainActivity.class);
+                            startActivity(intent);
                         }
                     });
                     AlertDialog alert1 = alert.create();
                     alert1.show();
-                /*
-                    Intent intent = new Intent(GameActivity.this, MainActivity.class);
-                    startActivity(intent);
-                    */
 
                     System.out.println(n + " this is higher than previous when it should have been lower");
                     // add alert / alarmruta / not is
