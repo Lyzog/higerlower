@@ -151,20 +151,11 @@ public class GameActivity extends AppCompatActivity {
                     ImageView imgView = findViewById(R.id.card);
                     imgView.setImageResource(card.picture);
                     Point++;
-                    //    System.out.println(n + " this is higher than previous");
                 }
-                /*
-                else if (c == card.value) { // denna behövs inte bara för att see bättre
-                    ImageView imageView = findViewById(R.id.card);
-                    imageView.setImageResource(card.picture);
-
-                    //  System.out.println(n + " this is equal than previous");
-                }
-                */
                 else {
                     AlertDialog.Builder alert = new AlertDialog.Builder(context);
                     alert.setMessage("you points: " + Point);
-                    alert.setCancelable(true);
+                    alert.setCancelable(false);
                     alert.setPositiveButton("end", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
@@ -174,8 +165,6 @@ public class GameActivity extends AppCompatActivity {
                     });
                     AlertDialog alert1 = alert.create();
                     alert1.show();
-                    //System.out.println(n + " this is lower than previous when it should have been higher");
-                    // add alert
                 }
             }
         });
@@ -187,29 +176,17 @@ public class GameActivity extends AppCompatActivity {
                 Random random = new Random();
                 int n = random.nextInt(52);
                 int c = card.value;
-                Log.d("David", "present: " + c);
                 card = list.get(n);
-                Log.d("David", "next: " + card.value);
 
                 if (c >= card.value) {
                     ImageView imgView = findViewById(R.id.card);
                     imgView.setImageResource(card.picture);
                     Point++;
-
-                    System.out.println(n + " this is lower than previous");
                 }
-                /*
-                else if (c == card.value) { // denna behövs inte bara för att se bättre
-                    ImageView imageView = findViewById(R.id.card);
-                    imageView.setImageResource(card.picture);
-
-                    System.out.println(n + " this is equal than previous");
-                }
-                */
                 else {
                     AlertDialog.Builder alert = new AlertDialog.Builder(context);
                     alert.setMessage("you points: " + Point);
-                    alert.setCancelable(true);
+                    alert.setCancelable(false);
                     alert.setPositiveButton("end", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
@@ -219,9 +196,6 @@ public class GameActivity extends AppCompatActivity {
                     });
                     AlertDialog alert1 = alert.create();
                     alert1.show();
-
-                    System.out.println(n + " this is higher than previous when it should have been lower");
-                    // add alert / alarmruta / not is
                 }
             }
         });

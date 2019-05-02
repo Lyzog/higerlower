@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
                 openSettings();
             }
         });
-    */
+*/
     }
     public void openGame(){
         Intent intent = new Intent(this,GameActivity.class);
