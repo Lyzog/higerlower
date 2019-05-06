@@ -56,5 +56,5 @@ public class MainActivity extends AppCompatActivity {
         Intent intent3 = new Intent(this,SettingsActivity.class);
         startActivity(intent3);
     }
-    */
+*/
 }
